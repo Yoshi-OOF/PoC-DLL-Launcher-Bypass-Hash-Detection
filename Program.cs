@@ -1,82 +1,80 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
 
 class Program
 {
-    // Path to the game's installation directory
+    // Chemin vers le répertoire d'installation du jeu
     static string gameInstallationPath = @"B:\SteamLibrary\steamapps\common\Helldivers 2";
 
-    // Path to the game's binary folder
+    // Chemin vers le répertoire bin du jeu
     static string gameBinaryPath = Path.Combine(gameInstallationPath, "bin");
 
-    // Path to the original version.dll
-    static string originalVersionDllPath = Path.Combine(Environment.SystemDirectory, "version.dll");
-
-    // Path to the obfuscated version.dll
-    static string obfuscatedVersionDllPath = Path.Combine(gameBinaryPath, "version.dll.obf");
+    // Chemin vers la version.dll d'origine dans le répertoire bin du jeu
+    static string originalVersionDllPath = Path.Combine(gameBinaryPath, "version.dll");
 
     static void Main(string[] args)
     {
-        // Check if the game installation directory exists
+        // Vérifiez si le répertoire d'installation du jeu existe
         if (!Directory.Exists(gameInstallationPath))
         {
-            Console.WriteLine("Game installation directory not found.");
+            Console.WriteLine("Répertoire d'installation du jeu introuvable.");
             return;
         }
 
-        // Check if the game binary directory exists
+        // Vérifiez si le répertoire bin du jeu existe
         if (!Directory.Exists(gameBinaryPath))
         {
-            Console.WriteLine("Game binary directory not found.");
+            Console.WriteLine("Répertoire bin du jeu introuvable.");
             return;
         }
 
-        // Generate random garbage bytes to inject into version.dll
+        // Générer des bytes aléatoires pour injecter dans version.dll
         byte[] garbageBytes = GenerateGarbageBytes(originalVersionDllPath);
 
-        // Create obfuscated version.dll by appending garbage bytes
-        CreateObfuscatedVersionDll(originalVersionDllPath, obfuscatedVersionDllPath, garbageBytes);
+        // Créez version.dll avec des bytes aléatoires ajoutés, supprimez l'original et renommez
+        ObfuscateAndReplaceVersionDll(originalVersionDllPath, garbageBytes);
 
-        // Replace the original version.dll with the obfuscated version.dll
-        File.Copy(obfuscatedVersionDllPath, originalVersionDllPath, true);
-
-        // Launch the game
+        // Lancer le jeu
         LaunchGame();
     }
 
     static byte[] GenerateGarbageBytes(string filePath)
     {
-        // Get the size of the original version.dll
+        // Obtenez la taille de version.dll original
         long fileSize = new FileInfo(filePath).Length;
 
-        // Generate random garbage bytes
+        // Générer des bytes aléatoires
         byte[] garbageBytes = new byte[fileSize];
         new Random().NextBytes(garbageBytes);
 
         return garbageBytes;
     }
 
-    static void CreateObfuscatedVersionDll(string originalFilePath, string obfuscatedFilePath, byte[] garbageBytes)
+    static void ObfuscateAndReplaceVersionDll(string originalFilePath, byte[] garbageBytes)
     {
-        // Copy the original version.dll to obfuscated version.dll
-        File.Copy(originalFilePath, obfuscatedFilePath, true);
+        string tempFilePath = originalFilePath + ".obf";
 
-        // Append garbage bytes to the obfuscated version.dll
-        using (var stream = new FileStream(obfuscatedFilePath, FileMode.Append))
+        // Copiez version.dll vers version.dll.obf
+        File.Copy(originalFilePath, tempFilePath, true);
+
+        // Ajoutez des bytes aléatoires à version.dll.obf
+        using (var stream = new FileStream(tempFilePath, FileMode.Append))
         {
             stream.Write(garbageBytes, 0, garbageBytes.Length);
         }
+
+        // Supprimez version.dll original
+        File.Delete(originalFilePath);
+
+        // Renommez version.dll.obf en version.dll
+        File.Move(tempFilePath, originalFilePath);
     }
 
     static void LaunchGame()
     {
         try
         {
-            // Command to start the Game
             Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd.exe",
@@ -87,7 +85,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred while trying to launch the game: {ex.Message}");
+            Console.WriteLine($"Erreur lors du lancement du jeu: {ex.Message}");
         }
     }
 }
