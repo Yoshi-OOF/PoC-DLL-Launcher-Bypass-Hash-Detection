@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "shCYnsi+0JWsBOv2OgkNCFlXIxaY/a+yUS7QWsq3wcg+WbUPi9IJSZU9tx9JeZDPkCeFje3UhnhUiqVDgBIhrw==",
+  "dgSpecHash": "B7MRbeX8GDBMQigVXoFzc3G4930JI02jqTz1zYpnK6izPBOeNgrbOWYq4VNlKypAV8K7LTDWcuU2JG+wMIdgvA==",
   "success": true,
-  "projectFilePath": "B:\\Enzo\\Desktop\\PocLauncher\\PocLauncher.csproj",
+  "projectFilePath": "B:\\Enzo\\Desktop\\PoC-DLL-Launcher-Bypass-Hash-Detection\\PocLauncher.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

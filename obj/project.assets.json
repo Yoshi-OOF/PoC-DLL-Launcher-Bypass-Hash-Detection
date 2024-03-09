@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Enzo\\Desktop\\PocLauncher\\PocLauncher.csproj",
+      "projectUniqueName": "B:\\Enzo\\Desktop\\PoC-DLL-Launcher-Bypass-Hash-Detection\\PocLauncher.csproj",
       "projectName": "PocLauncher",
-      "projectPath": "B:\\Enzo\\Desktop\\PocLauncher\\PocLauncher.csproj",
+      "projectPath": "B:\\Enzo\\Desktop\\PoC-DLL-Launcher-Bypass-Hash-Detection\\PocLauncher.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "B:\\Enzo\\Desktop\\PocLauncher\\obj\\",
+      "outputPath": "B:\\Enzo\\Desktop\\PoC-DLL-Launcher-Bypass-Hash-Detection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

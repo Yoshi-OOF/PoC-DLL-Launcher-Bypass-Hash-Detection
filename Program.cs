@@ -41,6 +41,9 @@ class Program
         // Create obfuscated version.dll by appending garbage bytes
         CreateObfuscatedVersionDll(originalVersionDllPath, obfuscatedVersionDllPath, garbageBytes);
 
+        // Replace the original version.dll with the obfuscated version.dll
+        File.Copy(obfuscatedVersionDllPath, originalVersionDllPath, true);
+
         // Launch the game
         LaunchGame();
     }
@@ -73,7 +76,7 @@ class Program
     {
         try
         {
-            // Utilisez cmd.exe pour exécuter la commande steam://
+            // Command to start the Game
             Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd.exe",
