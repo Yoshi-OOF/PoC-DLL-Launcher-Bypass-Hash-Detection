@@ -8,10 +8,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Nom du jeu pour lequel le launcher est destiné
+        // Name of the game to launch
         string gameName = "Helldivers 2";
 
-        // Tentative de trouver le répertoire d'installation du jeu dans les emplacements communs de Steam
+        // Get the path to the Steam installation
         string steamPath = GetSteamPath();
         string libraryFoldersPath = Path.Combine(steamPath, @"steamapps\libraryfolders.vdf");
         string gameInstallationPath = FindGameInstallationPath(gameName, steamPath, libraryFoldersPath);
@@ -26,21 +26,21 @@ class Program
         string originalVersionDllPath = Path.Combine(gameBinaryPath, "version.dll");
         string obfuscatedVersionDllPath = Path.Combine(gameBinaryPath, "version.dll.obf");
 
-        // Vérifiez si le répertoire binaire du jeu existe
+        // Check if the game binary directory exists
         if (!Directory.Exists(gameBinaryPath))
         {
             Console.WriteLine("Le répertoire binaire du jeu n'a pas été trouvé.");
             return;
         }
 
-        // Générez des octets aléatoires et créez le DLL obfusqué
+        // Generate random bytes to append to the original version.dll
         byte[] garbageBytes = GenerateGarbageBytes(originalVersionDllPath);
         CreateObfuscatedVersionDll(originalVersionDllPath, obfuscatedVersionDllPath, garbageBytes);
 
-        // Supprimez le fichier version.dll original et renommez le nouveau fichier
+        // Replace the original version.dll with the obfuscated version
         ReplaceOriginalDllWithObfuscated(originalVersionDllPath, obfuscatedVersionDllPath);
 
-        // Lancez le jeu via le lien Steam
+        // Launch the game
         LaunchGame();
     }
     static string GetSteamPath()
@@ -68,12 +68,12 @@ class Program
 
     static string FindGameInstallationPath(string gameName, string steamPath, string libraryFoldersPath)
     {
-        // Essayez d'abord le répertoire d'installation par défaut
+        // Vérifiez si le jeu est installé dans l'emplacement par défaut
         string defaultPath = Path.Combine(steamPath, @"steamapps\common", gameName);
         if (Directory.Exists(defaultPath)) return defaultPath;
 
-        // Sinon, lisez le fichier libraryfolders.vdf pour trouver d'autres répertoires de bibliothèques
-        // Cette partie est simplifiée ; vous devrez peut-être analyser le fichier VDF correctement selon sa structure
+        // Else, check the libraryfolders.vdf file
+        // This part could be simplified by using a library like VDFSharp
         if (File.Exists(libraryFoldersPath))
         {
             string[] lines = File.ReadAllLines(libraryFoldersPath);
@@ -89,7 +89,7 @@ class Program
             }
         }
 
-        return null; // Le jeu n'a pas été trouvé dans les emplacements communs
+        return null; // Game not found
     }
 
     static byte[] GenerateGarbageBytes(string filePath)
