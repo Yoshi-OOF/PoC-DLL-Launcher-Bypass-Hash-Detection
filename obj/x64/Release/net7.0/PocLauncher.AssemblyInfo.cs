@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PocLauncher")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b60aafc32f4b2eea9926e8be1cdcb21895d7d25b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2d846302d571906d74b92bee3ad701fc7e7654a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PocLauncher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PocLauncher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
