@@ -125,7 +125,7 @@ class Program
             Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd.exe",
-                Arguments = "/c start steam://rungameid/553850", // Remplacez "your_game_id_here" par l'ID de votre jeu
+                Arguments = "/c start steam://rungameid/553850", // Change and put the id of the game
                 UseShellExecute = false,
                 CreateNoWindow = true
             });
