@@ -1,0 +1,14 @@
+B:\Enzo\Desktop\PocLauncher\bin\x64\Release\net7.0\PocLauncher.exe
+B:\Enzo\Desktop\PocLauncher\bin\x64\Release\net7.0\PocLauncher.deps.json
+B:\Enzo\Desktop\PocLauncher\bin\x64\Release\net7.0\PocLauncher.runtimeconfig.json
+B:\Enzo\Desktop\PocLauncher\bin\x64\Release\net7.0\PocLauncher.dll
+B:\Enzo\Desktop\PocLauncher\bin\x64\Release\net7.0\PocLauncher.pdb
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.GeneratedMSBuildEditorConfig.editorconfig
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.AssemblyInfoInputs.cache
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.AssemblyInfo.cs
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.csproj.CoreCompileInputs.cache
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.dll
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\refint\PocLauncher.dll
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.pdb
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\PocLauncher.genruntimeconfig.cache
+B:\Enzo\Desktop\PocLauncher\obj\x64\Release\net7.0\ref\PocLauncher.dll
